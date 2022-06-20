@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+
+import Audio from './AudioPlayer';
+import AudioPlayer from "./AudioPlayer";
+import tracks from "./tracks";
+import { useEffect, useState } from 'react';
+import Loading from './Loading';
 
 function App() {
-  return (
+
+const [ IsLoading , SetIsLoading ] = useState(true);
+
+useEffect(() => {
+  
+  setTimeout(() => {
+    SetIsLoading(false);
+  },4000);
+
+},[])
+  
+return (
+    <>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+  { IsLoading ? (
+
+<Loading />
+
+  ):(
+
+    <AudioPlayer tracks={tracks} />
+
+  ) }
+
+
+
     </div>
-  );
+    </>
+  )
 }
 
 export default App;
