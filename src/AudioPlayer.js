@@ -2,6 +2,7 @@
  import AudioControls from "./AudioControls.jsx";
  import Backdrop from "./Backdrop";
  import "./styles.css";
+ import PlayList from './PlayList';
 
     
     const AudioPlayer = ({ tracks }) => {
@@ -72,6 +73,10 @@
         }
       };
     
+       const toSelectedTrack = (currentIndex) => {
+        setTrackIndex(0);
+        
+       }
 
       useEffect(() => {
         if (isPlaying) {
@@ -108,6 +113,7 @@
       }, []);
     
       return (
+        <>
         <div className="audio-player">
           <div className="track-info">
             <img
@@ -122,6 +128,7 @@
               onPrevClick={toPrevTrack}
               onNextClick={toNextTrack}
               onPlayPauseClick={setIsPlaying}
+              onSelectedTrack={toSelectedTrack}
             />
             <input
               type="range"
@@ -135,13 +142,18 @@
               onKeyUp={onScrubEnd}
               style={{ background: trackStyling }}
             />
+        
           </div>
+             <PlayList />
           <Backdrop
             trackIndex={trackIndex}
             activeColor={color}
             isPlaying={isPlaying}
           />
+      
         </div>
+    
+            </>
       );
     };
     

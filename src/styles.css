@@ -5,11 +5,13 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  height: 100%;
+
 
   transition:all 0.4s ease;
 }
@@ -24,16 +26,12 @@ input[type="range"] {
   height: 10px;
   -webkit-appearance: none;
   width: 100%;
- position:absolute;
+  margin-top: 0.5rem;
   border-radius: 10px;
   background: #3b7677;
   transition: all 0.2s ease;
   cursor: pointer;
-
- right: 0;
- left: 0;
- top:110%;
-bottom: 0;
+ 
 
 }
 
@@ -54,7 +52,7 @@ input[type="range"]::-webkit-slider-thumb{
     top:125%;
   }
   .audio-controls {
-padding-top:4rem;
+  padding-top:4rem;
 }
 .title{
   margin-top: 4rem;
@@ -92,49 +90,43 @@ padding-top:2rem;
 
 
 .audio-player {
-  position: fixed;
-  top:5%;
-  left: 3%;
-  bottom: 10%;
-  right: 3%;
-  max-width: 350px;
-  padding:30px;
-  border-radius: 30px !important;
+
+ width: 100%;
+
+padding: 1rem;
   box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
-  margin: auto;
+  margin: 0;
   color: var(--white);
   animation: appear 1s ease-out forwards;
 }
 
 .artwork {
-  box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 35px 35px rgba(0, 0, 0, 0.2);
   opacity: 0.9;
   border-radius: 5px;
-  display: block;
-  margin: auto;
-  height: 200px;
-  width: 200px;
+
+  height: 150px;
+  width: 150px;
 }
 
 .track-info {
-  text-align: center;
-  z-index: 1;
+  
   position: relative;
 }
 
 .title {
   letter-spacing: 1px;
   font-weight: 600;
-padding-top: 10px;
 text-shadow: 2px 2px 2px #777777;
-height: 4rem;
+height: 3rem;
 font-size: 26px;
+padding: 0;
 }
 
 .artist {
   opacity: 0.8;
   font-weight: 500;
-  margin-top: 2rem;
+  padding-top: 2rem;
   letter-spacing: 2px;
   font-size: 22px;
   text-shadow: 2px 2px 2px #777777;
@@ -146,7 +138,7 @@ font-size: 26px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3rem;
+  padding: 2rem;
 }
 
 .audio-controls .prev svg,
@@ -174,7 +166,7 @@ font-size: 26px;
   right: 0;
   bottom: 0;
   z-index: -1;
-  border-radius: 30px;
+  
 }
 
 .color-backdrop.playing {
@@ -201,4 +193,12 @@ font-size: 26px;
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.trackitem {
+  height: 3rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 10px;
 }

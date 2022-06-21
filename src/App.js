@@ -1,6 +1,4 @@
 import './styles.css';
-
-import Audio from './AudioPlayer';
 import AudioPlayer from "./AudioPlayer";
 import tracks from "./tracks";
 import { useEffect, useState } from 'react';
@@ -27,9 +25,11 @@ return (
 <Loading />
 
   ):(
-
+<>
     <AudioPlayer tracks={tracks} />
 
+    
+</>
   ) }
 
 
