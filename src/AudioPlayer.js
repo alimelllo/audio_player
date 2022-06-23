@@ -10,7 +10,7 @@
       const [trackIndex, setTrackIndex] = useState(0);
       const [trackProgress, setTrackProgress] = useState(0);
       const [isPlaying, setIsPlaying] = useState(false);
-    
+      const [Icon , setIcon] = useState(false);
       // Destructure for conciseness
       const { title, artist, color, image, audioSrc } = tracks[trackIndex];
     
@@ -74,8 +74,8 @@
       };
     
        const toSelectedTrack = (currentIndex) => {
-        setTrackIndex(0);
-        
+        setTrackIndex(currentIndex);
+
        }
 
       useEffect(() => {
@@ -128,7 +128,7 @@
               onPrevClick={toPrevTrack}
               onNextClick={toNextTrack}
               onPlayPauseClick={setIsPlaying}
-              onSelectedTrack={toSelectedTrack}
+              
             />
             <input
               type="range"
@@ -144,11 +144,16 @@
             />
         
           </div>
-             <PlayList />
+             <PlayList onSelectedTrack={toSelectedTrack} 
+              onPlayPauseClick={setIsPlaying}
+              isPlaying={isPlaying}
+             
+              />
           <Backdrop
             trackIndex={trackIndex}
             activeColor={color}
             isPlaying={isPlaying}
+        
           />
       
         </div>
